@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.block-p {
+    display: block;
+}
+
+.app-section {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+    margin: 30px;
+    box-shadow: 0 0 10px #bbb;
+    border-radius: 5px;
+}
+
+.life-bar {
+    height: 50px;
+    width: 600px;
+    border: 1px solid black;
+}
+
+.health-indicator {
+    height: 100%;
+}
+
+.character-title {
+    font-size: 40px;
+}
+
+.character-life-percentage {
+    font-size: 25px;
+}
+
+.character-info-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 30px;
+} 
+
+.button-group-element {
+    list-style: none;
+}
+
+.action-button {
+    padding: 0 10px;
+    font-size: 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.action-button:hover {
+    cursor: pointer;
+}
+
+.action-button:disabled {
+    cursor: default;
+}
+
+.action-log {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.log-element {
+    display: block;
+    text-transform: uppercase;
+    font-size: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.player-log {
+    background: #4b6ee3;
+}
+
+.monster-log {
+    background: #ed345f;
+}
+
+.result-text {
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.victory {
+    color: green;
+}
+
+.defeat {
+    color: red;
+}

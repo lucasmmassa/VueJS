@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Game</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="assets/js/factory.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="app-section">
+            <div id="player-life-display" class="character-info-col">
+                <p class="block-p character-title">Player</p>
+                <div class="life-bar">
+                    <div class="health-indicator" :style="playerHealthBarStyle"></div>
+                </div>
+                <p class="block-p character-life-percentage">{{ player.health }}%</p>
+            </div>
+            <div id="monster-life-display" class="character-info-col">
+                <p class="block-p character-title">Monster</p>
+                <div class="life-bar">
+                    <div class="health-indicator" :style="monsterHealthBarStyle"></div>
+                </div>
+                <p class="block-p character-life-percentage"> {{monster.health}}% </p>
+            </div>
+        </div>
+
+        <div v-show="finished" class="app-section">
+            <p v-show="player.health > 0" class="block-p result-text victory">You won!</p>
+            <p v-show="monster.health > 0" class="block-p result-text defeat">You lost!</p>
+        </div>
+
+        <div class="app-section">
+            <ul class="button-group">
+                <li v-for="button in buttons" class="button-group-element">
+                    <button class="action-button" :style="{background: button.color}"
+                        @click="actionFnCaller(button.actionFnName)" :disabled="finished && button.text !== 'reset'">
+                        {{ button.text }}
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div v-show="logs.length > 0" class="app-section">
+            <ul class="action-log">
+                <li v-for="log in orderedLogs" class="log-element"
+                    :class="{'player-log': log.origin==='player', 'monster-log': log.origin==='monster'}"> {{
+                    log.message }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
